@@ -56,7 +56,7 @@ locals {
 resource "github_repository" "infrastructure" {
   name                   = "infrastructure"
   description            = "Internal Athena infra configs"
-  visibility             = "private"
+  visibility             = "public"
   has_downloads          = false
   has_projects           = false
   has_wiki               = false
