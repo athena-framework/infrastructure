@@ -26,7 +26,7 @@ variable "branch" {
   description = "The name of the default branch for the component"
   type        = string
   nullable    = false
-  default = "master"
+  default     = "master"
 }
 
 variable "visibility" {
