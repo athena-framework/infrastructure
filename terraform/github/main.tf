@@ -71,6 +71,10 @@ resource "github_repository" "infrastructure" {
   delete_branch_on_merge      = true
   auto_init                   = true
   allow_update_branch         = true
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_membership" "ci" {
@@ -123,6 +127,10 @@ resource "github_repository" "athena" {
   delete_branch_on_merge      = true
   auto_init                   = false
   allow_update_branch         = true
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "github_branch_protection" "athena" {
@@ -203,6 +211,8 @@ resource "github_branch_protection" "component" {
 
   enforce_admins          = true
   required_linear_history = true
+  allows_deletions        = false
+  allows_force_pushes     = false
   blocks_creations        = true
 
   required_pull_request_reviews {
