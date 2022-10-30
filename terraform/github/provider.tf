@@ -2,18 +2,19 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "~> 4.24"
+      version = "~> 5.7"
     }
   }
 
   backend "s3" {
-    bucket  = "athena-framework"
-    key     = "terraform/github.tfstate"
-    region  = "us-east-1"
-    encrypt = true
+    bucket         = "athena-framework"
+    key            = "terraform/github.tfstate"
+    region         = "us-east-1"
+    encrypt        = true
+    dynamodb_table = "terraform-state"
   }
 
-  required_version = ">= 1.1.0"
+  required_version = ">= 1.3.0"
 }
 
 provider "github" {

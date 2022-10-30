@@ -54,20 +54,23 @@ locals {
 }
 
 resource "github_repository" "infrastructure" {
-  name                   = "infrastructure"
-  description            = "Internal Athena infra configs"
-  visibility             = "public"
-  has_downloads          = false
-  has_projects           = false
-  has_wiki               = false
-  has_issues             = false
-  is_template            = false
-  allow_auto_merge       = true
-  allow_merge_commit     = false
-  allow_rebase_merge     = false
-  allow_squash_merge     = true
-  delete_branch_on_merge = true
-  auto_init              = true
+  name                        = "infrastructure"
+  description                 = "Internal Athena infra configs"
+  visibility                  = "public"
+  has_downloads               = false
+  has_projects                = false
+  has_wiki                    = false
+  has_issues                  = false
+  is_template                 = false
+  allow_auto_merge            = true
+  allow_merge_commit          = false
+  allow_rebase_merge          = false
+  allow_squash_merge          = true
+  squash_merge_commit_title   = "COMMIT_OR_PR_TITLE"
+  squash_merge_commit_message = "COMMIT_MESSAGES"
+  delete_branch_on_merge      = true
+  auto_init                   = true
+  allow_update_branch         = true
 }
 
 resource "github_membership" "ci" {
@@ -101,22 +104,25 @@ resource "github_team_repository" "ci" {
 # Athena monorepo
 
 resource "github_repository" "athena" {
-  name                   = "athena"
-  description            = "An ecosystem of reusable, independent components"
-  visibility             = "public"
-  homepage_url           = "https://athenaframework.org"
-  topics                 = ["api", "crystal", "framework"]
-  has_downloads          = false
-  has_projects           = false
-  has_wiki               = false
-  has_issues             = true
-  is_template            = false
-  allow_auto_merge       = true
-  allow_merge_commit     = false
-  allow_rebase_merge     = false
-  allow_squash_merge     = true
-  delete_branch_on_merge = true
-  auto_init              = false
+  name                        = "athena"
+  description                 = "An ecosystem of reusable, independent components"
+  visibility                  = "public"
+  homepage_url                = "https://athenaframework.org"
+  topics                      = ["api", "crystal", "framework"]
+  has_downloads               = false
+  has_projects                = false
+  has_wiki                    = false
+  has_issues                  = true
+  is_template                 = false
+  allow_auto_merge            = true
+  allow_merge_commit          = false
+  allow_rebase_merge          = false
+  allow_squash_merge          = true
+  squash_merge_commit_title   = "PR_TITLE"
+  squash_merge_commit_message = "COMMIT_MESSAGES"
+  delete_branch_on_merge      = true
+  auto_init                   = false
+  allow_update_branch         = true
 }
 
 resource "github_branch_protection" "athena" {
@@ -125,6 +131,7 @@ resource "github_branch_protection" "athena" {
 
   enforce_admins          = true
   required_linear_history = true
+  blocks_creations        = false
 
   required_status_checks {
     strict = true
@@ -162,23 +169,25 @@ resource "github_team_repository" "athena" {
 resource "github_repository" "component" {
   for_each = local.components
 
-  name                   = each.key
-  description            = each.value.description
-  visibility             = lookup(each.value, "visibility", "public")
-  homepage_url           = lookup(each.value, "url", null)
-  topics                 = each.value.topics
-  has_downloads          = false
-  has_projects           = false
-  has_wiki               = false
-  has_issues             = false
-  is_template            = false
-  allow_auto_merge       = false
-  allow_merge_commit     = false
-  allow_rebase_merge     = false
-  allow_squash_merge     = true
-  delete_branch_on_merge = false
-  auto_init              = false
-  # TODO: Rename commit to PR title by default
+  name                        = each.key
+  description                 = each.value.description
+  visibility                  = lookup(each.value, "visibility", "public")
+  homepage_url                = lookup(each.value, "url", null)
+  topics                      = each.value.topics
+  has_downloads               = false
+  has_projects                = false
+  has_wiki                    = false
+  has_issues                  = false
+  is_template                 = false
+  allow_auto_merge            = false
+  allow_merge_commit          = false
+  allow_rebase_merge          = false
+  allow_squash_merge          = true
+  squash_merge_commit_title   = "PR_TITLE"
+  squash_merge_commit_message = "BLANK"
+  delete_branch_on_merge      = false
+  auto_init                   = false
+  allow_update_branch         = false
 
   template {
     owner      = "athena-framework"
@@ -194,6 +203,7 @@ resource "github_branch_protection" "component" {
 
   enforce_admins          = true
   required_linear_history = true
+  blocks_creations        = true
 
   required_pull_request_reviews {
     required_approving_review_count = 0
