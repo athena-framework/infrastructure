@@ -17,7 +17,7 @@ variable "url" {
 }
 
 variable "topics" {
-  description = "The URL to the documentation of the component"
+  description = "The component topics"
   type        = list(string)
   nullable    = false
 }

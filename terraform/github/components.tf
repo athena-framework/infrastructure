@@ -1,3 +1,7 @@
+locals {
+  topics = ["crystal"]
+}
+
 module "config_component" {
   source = "./modules/component"
 
@@ -5,7 +9,7 @@ module "config_component" {
   name        = "config"
   description = "Common library for configuring Athena components"
   url         = "https://athenaframework.org/Config/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "console_component" {
@@ -15,7 +19,7 @@ module "console_component" {
   name        = "console"
   description = "Allows for the creation of CLI based commands"
   url         = "https://athenaframework.org/Console/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "dependency-injection_component" {
@@ -25,7 +29,7 @@ module "dependency-injection_component" {
   name        = "dependency-injection"
   description = "Robust dependency injection service container framework"
   url         = "https://athenaframework.org/DependencyInjection/"
-  topics      = ["crystal", "dependency-injection"]
+  topics      = concat(local.topics, ["dependency-injection"])
 }
 
 module "event-dispatcher_component" {
@@ -35,7 +39,7 @@ module "event-dispatcher_component" {
   name        = "event-dispatcher"
   description = "A Mediator and Observer pattern event library"
   url         = "https://athenaframework.org/EventDispatcher/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "framework_component" {
@@ -45,7 +49,7 @@ module "framework_component" {
   name        = "framework"
   description = "A web framework created from various Athena components"
   url         = "https://athenaframework.org/Framework/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "image-size_component" {
@@ -55,7 +59,7 @@ module "image-size_component" {
   name        = "image-size"
   description = "Measures the size of various image formats"
   url         = "https://athenaframework.org/ImageSize/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "negotiation_component" {
@@ -65,7 +69,7 @@ module "negotiation_component" {
   name        = "negotiation"
   description = "Framework agnostic content negotiation library"
   url         = "https://athenaframework.org/Negotiation/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "routing_component" {
@@ -75,7 +79,7 @@ module "routing_component" {
   name        = "routing"
   description = "Robust and performant HTTP routing library"
   url         = "https://athenaframework.org/Routing/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "serializer_component" {
@@ -85,7 +89,7 @@ module "serializer_component" {
   name        = "serializer"
   description = "Flexible object (de)serialization library"
   url         = "https://athenaframework.org/Serializer/"
-  topics      = ["crystal"]
+  topics      = local.topics
 }
 
 module "spec_component" {
@@ -95,7 +99,7 @@ module "spec_component" {
   name        = "spec"
   description = "Common/helpful Spec compliant testing utilities"
   url         = "https://athenaframework.org/Spec/"
-  topics      = ["crystal", "testing", "spec"]
+  topics      = concat(local.topics, ["testing", "spec"])
 }
 
 module "validator_component" {
@@ -105,5 +109,5 @@ module "validator_component" {
   name        = "validator"
   description = "Object/value validation library"
   url         = "https://athenaframework.org/Validator/"
-  topics      = ["crystal", "validation"]
+  topics      = concat(local.topics, ["validation"])
 }
