@@ -140,7 +140,7 @@ resource "github_repository" "website" {
 
     source {
       branch = "gh-pages"
-      path = "/"
+      path   = "/"
     }
   }
 
