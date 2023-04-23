@@ -2,7 +2,7 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = "~> 5.12"
+      version = "~> 5.23"
     }
   }
 
@@ -14,7 +14,7 @@ terraform {
     dynamodb_table = "terraform-state"
   }
 
-  required_version = ">= 1.3.0"
+  required_version = ">= 1.4.0"
 }
 
 provider "github" {

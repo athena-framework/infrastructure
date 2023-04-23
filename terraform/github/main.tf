@@ -200,7 +200,7 @@ resource "github_repository" "skeleton" {
   has_projects                = false
   has_wiki                    = false
   has_issues                  = true
-  is_template                 = true 
+  is_template                 = true
   allow_auto_merge            = true
   allow_merge_commit          = false
   allow_rebase_merge          = false
@@ -217,8 +217,8 @@ resource "github_repository" "skeleton" {
 }
 
 resource "github_branch" "skeleton" {
-  branch        = "master"
-  repository    = github_repository.skeleton.id
+  branch     = "master"
+  repository = github_repository.skeleton.id
 }
 
 resource "github_branch_default" "skeleton" {
