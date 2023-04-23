@@ -68,3 +68,10 @@ resource "github_team_repository" "ci" {
   team_id    = var.ci_team.id
   permission = "push"
 }
+
+# Component issue label
+resource "github_issue_label" "component" {
+  repository = "athena"
+  name       = "component:${var.name}"
+  color      = "BBD8F2"
+}
