@@ -33,6 +33,11 @@ resource "github_repository" "component" {
   }
 }
 
+resource "github_actions_repository_permissions" "component" {
+  repository = github_repository.component.id
+  enabled    = false
+}
+
 resource "github_branch_protection" "master" {
   repository_id = github_repository.component.node_id
   pattern       = "master"
@@ -43,14 +48,6 @@ resource "github_branch_protection" "master" {
   allows_force_pushes     = false
   blocks_creations        = true
 
-  required_pull_request_reviews {
-    required_approving_review_count = 0
-    pull_request_bypassers = [
-      var.ci_team.node_id
-    ]
-  }
-
-  # TODO: Restrict creating matching branches
   push_restrictions = [
     var.ci_team.node_id
   ]
