@@ -32,6 +32,16 @@ module "dependency-injection_component" {
   topics      = concat(local.topics, ["dependency-injection"])
 }
 
+module "dotenv_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "dotenv"
+  description = "Registers environment variables from a .env file"
+  url         = "https://athenaframework.org/Dotenv/"
+  topics      = local.topics
+}
+
 module "event-dispatcher_component" {
   source = "./modules/component"
 
