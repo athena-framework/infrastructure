@@ -63,9 +63,9 @@ resource "aws_s3_bucket_versioning" "athena-framework" {
 # DynamoDB
 
 resource "aws_dynamodb_table" "terraform-state" {
-  name = "terraform-state"
-  hash_key = "LockID"
-  read_capacity = 20
+  name           = "terraform-state"
+  hash_key       = "LockID"
+  read_capacity  = 20
   write_capacity = 20
 
   attribute {
