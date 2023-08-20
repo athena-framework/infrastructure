@@ -68,4 +68,3 @@ resource "cloudflare_record" "athenaframework-org-A-GH-4" {
   type    = "A"
   proxied = true
 }
-
