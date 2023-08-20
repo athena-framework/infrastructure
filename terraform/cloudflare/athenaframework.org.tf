@@ -29,7 +29,7 @@ resource "cloudflare_zone_settings_override" "athenaframework-org" {
 }
 
 # DNS Records
-resource "cloudflare_record" "WWW-cname" {
+resource "cloudflare_record" "athenaframework-org-CNAME-www" {
   zone_id = cloudflare_zone.athenaframework-org.id
   name    = "www"
   value   = "athenaframework.org"
@@ -37,7 +37,7 @@ resource "cloudflare_record" "WWW-cname" {
   proxied = true
 }
 
-resource "cloudflare_record" "A-GH-1" {
+resource "cloudflare_record" "athenaframework-org-A-GH-1" {
   zone_id = cloudflare_zone.athenaframework-org.id
   name    = "athenaframework.org"
   value   = "185.199.108.153"
@@ -45,7 +45,7 @@ resource "cloudflare_record" "A-GH-1" {
   proxied = true
 }
 
-resource "cloudflare_record" "A-GH-2" {
+resource "cloudflare_record" "athenaframework-org-A-GH-2" {
   zone_id = cloudflare_zone.athenaframework-org.id
   name    = "athenaframework.org"
   value   = "185.199.109.153"
@@ -53,7 +53,7 @@ resource "cloudflare_record" "A-GH-2" {
   proxied = true
 }
 
-resource "cloudflare_record" "A-GH-3" {
+resource "cloudflare_record" "athenaframework-org-A-GH-3" {
   zone_id = cloudflare_zone.athenaframework-org.id
   name    = "athenaframework.org"
   value   = "185.199.110.153"
@@ -61,7 +61,7 @@ resource "cloudflare_record" "A-GH-3" {
   proxied = true
 }
 
-resource "cloudflare_record" "A-GH-4" {
+resource "cloudflare_record" "athenaframework-org-A-GH-4" {
   zone_id = cloudflare_zone.athenaframework-org.id
   name    = "athenaframework.org"
   value   = "185.199.111.153"
