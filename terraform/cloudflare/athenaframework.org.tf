@@ -68,3 +68,11 @@ resource "cloudflare_record" "athenaframework-org-A-GH-4" {
   type    = "A"
   proxied = true
 }
+
+resource "cloudflare_record" "athenaframework_org_txt_github_pages_verification" {
+  zone_id = cloudflare_zone.athenaframework-org.id
+  name    = "_github-pages-challenge-athena-framework"
+  value   = "5f9524b2b091ccf849e9717bc2b4ca"
+  type    = "TXT"
+  proxied = false
+}
