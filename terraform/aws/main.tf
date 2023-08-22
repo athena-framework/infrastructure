@@ -1,15 +1,15 @@
 # User
-resource "aws_iam_user" "athena-terraform" {
+resource "aws_iam_user" "athena_terraform" {
   name = "athena-terraform"
   path = "/"
 }
 
-resource "aws_iam_user_policy_attachment" "athena-terraform" {
-  user       = aws_iam_user.athena-terraform.name
-  policy_arn = aws_iam_policy.athena-terraform.arn
+resource "aws_iam_user_policy_attachment" "athena_terraform" {
+  user       = aws_iam_user.athena_terraform.name
+  policy_arn = aws_iam_policy.athena_terraform.arn
 }
 
-resource "aws_iam_policy" "athena-terraform" {
+resource "aws_iam_policy" "athena_terraform" {
   name        = "athena-terraform"
   description = "Permissions required to maintain the terraform stack once bootstrapped"
   path        = "/"
@@ -48,12 +48,12 @@ EOT
 
 # S3
 
-resource "aws_s3_bucket" "athena-framework" {
+resource "aws_s3_bucket" "athena_framework" {
   bucket = "athena-framework"
 }
 
-resource "aws_s3_bucket_versioning" "athena-framework" {
-  bucket = aws_s3_bucket.athena-framework.id
+resource "aws_s3_bucket_versioning" "athena_framework" {
+  bucket = aws_s3_bucket.athena_framework.id
 
   versioning_configuration {
     status = "Enabled"
@@ -62,7 +62,7 @@ resource "aws_s3_bucket_versioning" "athena-framework" {
 
 # DynamoDB
 
-resource "aws_dynamodb_table" "terraform-state" {
+resource "aws_dynamodb_table" "terraform_state" {
   name           = "terraform-state"
   hash_key       = "LockID"
   read_capacity  = 20
