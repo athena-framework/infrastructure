@@ -22,7 +22,7 @@ module "console_component" {
   topics      = local.topics
 }
 
-module "dependency-injection_component" {
+module "dependency_injection_component" {
   source = "./modules/component"
 
   ci_team     = github_team.ci
@@ -42,7 +42,7 @@ module "dotenv_component" {
   topics      = local.topics
 }
 
-module "event-dispatcher_component" {
+module "event_dispatcher_component" {
   source = "./modules/component"
 
   ci_team     = github_team.ci
@@ -62,7 +62,7 @@ module "framework_component" {
   topics      = local.topics
 }
 
-module "image-size_component" {
+module "image_size_component" {
   source = "./modules/component"
 
   ci_team     = github_team.ci
