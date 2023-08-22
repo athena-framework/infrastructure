@@ -1,17 +1,17 @@
 # Zone
-resource "cloudflare_zone" "athenaframework-org" {
+resource "cloudflare_zone" "athenaframework_org" {
   account_id = cloudflare_account.blacksmoke16.id
   zone       = "athenaframework.org"
   plan       = "free"
   type       = "full"
 }
 
-resource "cloudflare_zone_dnssec" "athenaframework-org" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_zone_dnssec" "athenaframework_org" {
+  zone_id = cloudflare_zone.athenaframework_org.id
 }
 
-resource "cloudflare_zone_settings_override" "athenaframework-org" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_zone_settings_override" "athenaframework_org" {
+  zone_id = cloudflare_zone.athenaframework_org.id
 
   settings {
     automatic_https_rewrites = "on"
@@ -29,40 +29,40 @@ resource "cloudflare_zone_settings_override" "athenaframework-org" {
 }
 
 # DNS Records
-resource "cloudflare_record" "athenaframework-org-CNAME-www" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_record" "athenaframework_org_www_cname" {
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "www"
   value   = "athenaframework.org"
   type    = "CNAME"
   proxied = true
 }
 
-resource "cloudflare_record" "athenaframework-org-A-GH-1" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_record" "athenaframework_org_github_redirect_one" {
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "athenaframework.org"
   value   = "185.199.108.153"
   type    = "A"
   proxied = true
 }
 
-resource "cloudflare_record" "athenaframework-org-A-GH-2" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_record" "athenaframework_org_github_redirect_two" {
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "athenaframework.org"
   value   = "185.199.109.153"
   type    = "A"
   proxied = true
 }
 
-resource "cloudflare_record" "athenaframework-org-A-GH-3" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_record" "athenaframework_org_github_redirect_three" {
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "athenaframework.org"
   value   = "185.199.110.153"
   type    = "A"
   proxied = true
 }
 
-resource "cloudflare_record" "athenaframework-org-A-GH-4" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+resource "cloudflare_record" "athenaframework_org_github_redirect_four" {
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "athenaframework.org"
   value   = "185.199.111.153"
   type    = "A"
@@ -70,7 +70,7 @@ resource "cloudflare_record" "athenaframework-org-A-GH-4" {
 }
 
 resource "cloudflare_record" "athenaframework_org_txt_github_pages_verification" {
-  zone_id = cloudflare_zone.athenaframework-org.id
+  zone_id = cloudflare_zone.athenaframework_org.id
   name    = "_github-pages-challenge-athena-framework"
   value   = "5f9524b2b091ccf849e9717bc2b4ca"
   type    = "TXT"

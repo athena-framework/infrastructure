@@ -1,17 +1,17 @@
 # Zone
-resource "cloudflare_zone" "athena-framework-org" {
+resource "cloudflare_zone" "athena_framework_org" {
   account_id = cloudflare_account.blacksmoke16.id
   zone       = "athena-framework.org"
   plan       = "free"
   type       = "full"
 }
 
-resource "cloudflare_zone_dnssec" "athena-framework-org" {
-  zone_id = cloudflare_zone.athena-framework-org.id
+resource "cloudflare_zone_dnssec" "athena_framework_org" {
+  zone_id = cloudflare_zone.athena_framework_org.id
 }
 
-resource "cloudflare_zone_settings_override" "athena-framework-org" {
-  zone_id = cloudflare_zone.athena-framework-org.id
+resource "cloudflare_zone_settings_override" "athena_framework_org" {
+  zone_id = cloudflare_zone.athena_framework_org.id
 
   settings {
     automatic_https_rewrites = "on"
@@ -29,8 +29,8 @@ resource "cloudflare_zone_settings_override" "athena-framework-org" {
 }
 
 # DNS Records
-resource "cloudflare_record" "athena-framework-org-A-athena-framework-org" {
-  zone_id = cloudflare_zone.athena-framework-org.id
+resource "cloudflare_record" "athena_framework_org_redirect" {
+  zone_id = cloudflare_zone.athena_framework_org.id
   name    = "athena-framework.org"
   comment = "https://community.cloudflare.com/t/redirecting-one-domain-to-another/81960"
   value   = "192.0.2.1"
@@ -38,8 +38,8 @@ resource "cloudflare_record" "athena-framework-org-A-athena-framework-org" {
   proxied = true
 }
 
-resource "cloudflare_record" "athena-framework-org-A-www" {
-  zone_id = cloudflare_zone.athena-framework-org.id
+resource "cloudflare_record" "athena_framework_org_www_redirect" {
+  zone_id = cloudflare_zone.athena_framework_org.id
   name    = "www"
   value   = "192.0.2.1"
   type    = "A"
@@ -47,9 +47,9 @@ resource "cloudflare_record" "athena-framework-org-A-www" {
 }
 
 # Page Rules
-resource "cloudflare_page_rule" "athena-framework-org-redirect" {
-  zone_id  = cloudflare_zone.athena-framework-org.id
-  target   = "*${cloudflare_zone.athena-framework-org.zone}/*"
+resource "cloudflare_page_rule" "athena_framework_org_redirect" {
+  zone_id  = cloudflare_zone.athena_framework_org.id
+  target   = "*${cloudflare_zone.athena_framework_org.zone}/*"
   priority = 1
 
   actions {
