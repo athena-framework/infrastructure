@@ -2,6 +2,16 @@ locals {
   topics = ["crystal"]
 }
 
+module "clock_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "clock"
+  description = "Decouples applications from the system clock"
+  url         = "https://athenaframework.org/Clock/"
+  topics      = concat(local.topics, ["time", "clock"])
+}
+
 module "config_component" {
   source = "./modules/component"
 

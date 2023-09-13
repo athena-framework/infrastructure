@@ -56,9 +56,6 @@ locals {
     "state:rejected" = {
       "color" = "6FE1E2"
     }
-    "state:wip" = {
-      "color" = "F0F773"
-    }
 
     "type:performance" = {
       "color" = "80D944"

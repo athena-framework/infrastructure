@@ -53,11 +53,6 @@ resource "github_branch_protection" "master" {
   ]
 }
 
-resource "github_branch" "default" {
-  repository = github_repository.component.id
-  branch     = var.branch
-}
-
 resource "github_branch_default" "default" {
   repository = github_repository.component.id
   branch     = var.branch
