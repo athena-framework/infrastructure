@@ -11,7 +11,7 @@ resource "github_repository" "component" {
   description                 = var.description
   visibility                  = var.visibility
   homepage_url                = var.url
-  topics                      = var.topics
+  topics                      = concat(var.topics, ["component"])
   has_downloads               = false
   has_projects                = false
   has_wiki                    = false
