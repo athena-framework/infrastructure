@@ -1,0 +1,15 @@
+version: 2
+
+updates:
+  - package-ecosystem: "terraform"
+    directory: "/terraform/aws"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "terraform"
+    directory: "/terraform/cloudflare"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "terraform"
+    directory: "/terraform/github"
+    schedule:
+      interval: "weekly"
