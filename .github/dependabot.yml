@@ -4,12 +4,12 @@ updates:
   - package-ecosystem: "terraform"
     directory: "/terraform/aws"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   - package-ecosystem: "terraform"
     directory: "/terraform/cloudflare"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
   - package-ecosystem: "terraform"
     directory: "/terraform/github"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
