@@ -64,6 +64,13 @@ resource "github_team_repository" "ci" {
   permission = "push"
 }
 
+# Doc branch used to build the API docs for the component
+resource "github_branch" "docs" {
+  repository    = github_repository.component.id
+  branch        = "docs"
+  source_branch = var.branch
+}
+
 # Component issue label
 resource "github_issue_label" "component" {
   repository = "athena"
