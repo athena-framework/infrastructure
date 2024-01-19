@@ -46,7 +46,7 @@ resource "github_branch_protection" "website" {
     strict = true
     contexts = [
       "check_spelling",
-      "Deploy docs",
+      "build",
     ]
   }
 
