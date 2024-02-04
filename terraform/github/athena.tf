@@ -105,7 +105,8 @@ resource "github_branch_protection" "athena" {
       "check_format",
       "check_spelling",
       "test (macos-latest, latest)",
-      "test (ubuntu-latest, latest)"
+      "test (ubuntu-latest, latest)",
+      "test (windows-latest, latest)",
     ]
   }
 
