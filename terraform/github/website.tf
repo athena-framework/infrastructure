@@ -19,15 +19,6 @@ resource "github_repository" "website" {
   auto_init                   = false
   allow_update_branch         = true
 
-  pages {
-    cname = "athenaframework.org"
-
-    source {
-      branch = "gh-pages"
-      path   = "/"
-    }
-  }
-
   lifecycle {
     prevent_destroy = true
   }
