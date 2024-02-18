@@ -29,10 +29,11 @@ resource "cloudflare_zone_settings_override" "athena_framework_org" {
 }
 
 # DNS Records
+# This lets things resolve, with the actual redirect being handled by Page Redirect Rules
 resource "cloudflare_record" "athena_framework_org_redirect" {
   zone_id = cloudflare_zone.athena_framework_org.id
   name    = "athena-framework.org"
-  comment = "https://community.cloudflare.com/t/redirecting-one-domain-to-another/81960"
+  comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
   value   = "192.0.2.1"
   type    = "A"
   proxied = true
@@ -41,21 +42,62 @@ resource "cloudflare_record" "athena_framework_org_redirect" {
 resource "cloudflare_record" "athena_framework_org_www_redirect" {
   zone_id = cloudflare_zone.athena_framework_org.id
   name    = "www"
+  comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
   value   = "192.0.2.1"
   type    = "A"
   proxied = true
 }
 
-# Page Rules
-resource "cloudflare_page_rule" "athena_framework_org_redirect" {
-  zone_id  = cloudflare_zone.athena_framework_org.id
-  target   = "*${cloudflare_zone.athena_framework_org.zone}/*"
-  priority = 1
+resource "cloudflare_record" "athena_framework_org_dev_cname" {
+  zone_id = cloudflare_zone.athena_framework_org.id
+  name    = "dev"
+  comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
+  value   = "192.0.2.1"
+  type    = "A"
+  proxied = true
+}
 
-  actions {
-    forwarding_url {
-      status_code = 301
-      url         = "https://athenaframework.org/$2"
+# Redirect traffic from `athena-framework.org` to `athenaframework.org`
+resource "cloudflare_ruleset" "default" {
+  zone_id     = cloudflare_zone.athena_framework_org.id
+  name        = "redirects"
+  description = "Redirect ruleset"
+  kind        = "zone"
+  phase       = "http_request_dynamic_redirect"
+
+  rules {
+    action       = "redirect"
+    description  = "Root Redirect"
+    enabled      = true
+    expression   = "(http.host eq \"athena-framework.org\") or (http.host eq \"www.athena-framework.org\")"
+
+    action_parameters {
+      from_value {
+        preserve_query_string = true
+        status_code           = 301
+
+        target_url {
+          expression = "concat(\"https://athenaframework.org\", http.request.uri.path)"
+        }
+      }
+    }
+  }
+
+  rules {
+    action       = "redirect"
+    description  = "Dev Redirect"
+    enabled      = true
+    expression   = "(http.host eq \"dev.athena-framework.org\")"
+
+    action_parameters {
+      from_value {
+        preserve_query_string = true
+        status_code           = 301
+
+        target_url {
+          expression = "concat(\"https://dev.athenaframework.org\", http.request.uri.path)"
+        }
+      }
     }
   }
 }

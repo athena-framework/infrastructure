@@ -45,6 +45,14 @@ resource "cloudflare_record" "athenaframework_org_pages_cname" {
   proxied = true
 }
 
+resource "cloudflare_record" "athenaframework_org_dev_pages_cname" {
+  zone_id = cloudflare_zone.athenaframework_org.id
+  name    = "dev"
+  value   = "dev.athenaframework.pages.dev"
+  type    = "CNAME"
+  proxied = true
+}
+
 # Pages
 resource "cloudflare_pages_project" "athenaframework" {
   account_id        = cloudflare_account.blacksmoke16.id
@@ -56,4 +64,10 @@ resource "cloudflare_pages_domain" "athenaframework_org" {
   account_id   = cloudflare_account.blacksmoke16.id
   project_name = cloudflare_pages_project.athenaframework.name
   domain       = cloudflare_zone.athenaframework_org.zone
+}
+
+resource "cloudflare_pages_domain" "dev_athenaframework_org" {
+  account_id   = cloudflare_account.blacksmoke16.id
+  project_name = cloudflare_pages_project.athenaframework.name
+  domain       = "dev.${cloudflare_zone.athenaframework_org.zone}"
 }
