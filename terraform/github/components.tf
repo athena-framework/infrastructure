@@ -82,6 +82,16 @@ module "image_size_component" {
   topics      = local.topics
 }
 
+module "mercure_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "mercure"
+  description = "Allows easily pushing updates to web browsers and other HTTP clients using the Mercure protocol"
+  url         = "https://athenaframework.org/Mercure/"
+  topics      = concat(local.topics, ["mercure", "server-sent-events"])
+}
+
 module "negotiation_component" {
   source = "./modules/component"
 
