@@ -46,11 +46,14 @@ resource "github_branch_protection" "master" {
   required_linear_history = true
   allows_deletions        = false
   allows_force_pushes     = false
-  blocks_creations        = true
 
-  push_restrictions = [
-    var.ci_team.node_id
-  ]
+  restrict_pushes {
+    blocks_creations = true
+
+    push_allowances = [
+      var.ci_team.node_id
+    ]
+  }
 }
 
 resource "github_branch_default" "default" {

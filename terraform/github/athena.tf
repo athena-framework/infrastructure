@@ -75,7 +75,7 @@ resource "github_repository" "athena" {
   has_issues                  = true
   is_template                 = false
   allow_auto_merge            = true
-  allow_merge_commit          = false
+  allow_merge_commit          = true
   allow_rebase_merge          = false
   allow_squash_merge          = true
   squash_merge_commit_title   = "PR_TITLE"
