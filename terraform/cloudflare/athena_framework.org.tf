@@ -66,10 +66,10 @@ resource "cloudflare_ruleset" "default" {
   phase       = "http_request_dynamic_redirect"
 
   rules {
-    action       = "redirect"
-    description  = "Root Redirect"
-    enabled      = true
-    expression   = "(http.host eq \"athena-framework.org\") or (http.host eq \"www.athena-framework.org\")"
+    action      = "redirect"
+    description = "Root Redirect"
+    enabled     = true
+    expression  = "(http.host eq \"athena-framework.org\") or (http.host eq \"www.athena-framework.org\")"
 
     action_parameters {
       from_value {
@@ -84,10 +84,10 @@ resource "cloudflare_ruleset" "default" {
   }
 
   rules {
-    action       = "redirect"
-    description  = "Dev Redirect"
-    enabled      = true
-    expression   = "(http.host eq \"dev.athena-framework.org\")"
+    action      = "redirect"
+    description = "Dev Redirect"
+    enabled     = true
+    expression  = "(http.host eq \"dev.athena-framework.org\")"
 
     action_parameters {
       from_value {

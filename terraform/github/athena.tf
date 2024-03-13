@@ -90,7 +90,7 @@ resource "github_repository" "athena" {
 }
 
 resource "github_branch_protection" "athena" {
-  pattern       = "master"
+  pattern       = github_default_branch.branch
   repository_id = github_repository.athena.node_id
 
   enforce_admins          = true
