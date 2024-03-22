@@ -19,6 +19,8 @@ resource "github_repository" "website" {
   auto_init                   = false
   allow_update_branch         = true
 
+  archived = true
+
   lifecycle {
     prevent_destroy = true
   }
