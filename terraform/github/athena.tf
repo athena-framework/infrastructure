@@ -104,9 +104,10 @@ resource "github_branch_protection" "athena" {
       "coding_standards",
       "check_format",
       "check_spelling",
-      "test (macos-latest, latest)",
-      "test (ubuntu-latest, latest)",
-      "test (windows-latest, latest)",
+      "test_compiled",
+      "test_unit (macos-latest, latest)",
+      "test_unit (ubuntu-latest, latest)",
+      "test_unit (windows-latest, latest)",
     ]
   }
 
