@@ -48,3 +48,9 @@ variable "ci_team" {
   })
   nullable = false
 }
+
+variable "deprecated" {
+  type     = bool
+  nullable = false
+  default  = false
+}

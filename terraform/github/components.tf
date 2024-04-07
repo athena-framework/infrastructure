@@ -20,6 +20,7 @@ module "config_component" {
   description = "Common library for configuring Athena components"
   url         = "https://athenaframework.org/Config/"
   topics      = local.topics
+  deprecated  = true
 }
 
 module "console_component" {

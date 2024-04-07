@@ -27,6 +27,8 @@ resource "github_repository" "component" {
   auto_init                   = false
   allow_update_branch         = false
 
+  archived = var.deprecated
+
   template {
     owner      = "athena-framework"
     repository = "component-template"
