@@ -102,9 +102,9 @@ resource "github_branch_protection" "athena" {
     strict = true
     contexts = [
       "coding_standards",
-      "check_format",
+      "check_format (latest)",
       "check_spelling",
-      "test_compiled",
+      "test_compiled (latest)",
       "test_unit (macos-latest, latest)",
       "test_unit (ubuntu-latest, latest)",
       "test_unit (windows-latest, latest)",
