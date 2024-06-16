@@ -25,6 +25,10 @@ locals {
       "color"       = "55DCFC"
       "description" = "Brand new functionality"
     }
+    "kind:maintenance" = {
+      "color"       = "A6BE14"
+      "description" = "Keeping an existing feature functional"
+    }
     "kind:infrastructure" = {
       "color" = "000000"
     }
