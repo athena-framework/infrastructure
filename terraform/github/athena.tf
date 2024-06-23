@@ -10,6 +10,11 @@ locals {
       "color" = "D3C804"
     }
 
+    "component:ecosystem" = {
+      "color"       = "BBD8F2"
+      "description" = "Affects all components in the ecosystem"
+    }
+
     "kind:bug" = {
       "color"       = "D73A4A"
       "description" = "An existing feature isn't working as expected"
