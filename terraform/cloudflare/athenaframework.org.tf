@@ -32,7 +32,7 @@ resource "cloudflare_zone_settings_override" "athenaframework_org" {
 resource "cloudflare_record" "athenaframework_org_www_cname" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "www"
-  value   = "athenaframework.org"
+  content = "athenaframework.org"
   type    = "CNAME"
   proxied = true
 }
@@ -40,7 +40,7 @@ resource "cloudflare_record" "athenaframework_org_www_cname" {
 resource "cloudflare_record" "athenaframework_org_pages_cname" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = cloudflare_zone.athenaframework_org.zone
-  value   = "athenaframework.pages.dev"
+  content = "athenaframework.pages.dev"
   type    = "CNAME"
   proxied = true
 }
@@ -48,7 +48,7 @@ resource "cloudflare_record" "athenaframework_org_pages_cname" {
 resource "cloudflare_record" "athenaframework_org_dev_pages_cname" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "dev"
-  value   = "dev.athenaframework.pages.dev"
+  content = "dev.athenaframework.pages.dev"
   type    = "CNAME"
   proxied = true
 }
@@ -76,7 +76,7 @@ resource "cloudflare_pages_domain" "dev_athenaframework_org" {
 resource "cloudflare_record" "athenaframework_org_email_domain_ownership_txt" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = cloudflare_zone.athenaframework_org.zone
-  value   = "sl-verification=dnymxbfdjenrigduftapvkqbylloie"
+  content = "sl-verification=dnymxbfdjenrigduftapvkqbylloie"
   type    = "TXT"
   proxied = false
 }
@@ -85,7 +85,7 @@ resource "cloudflare_record" "athenaframework_org_email_mx1" {
   zone_id  = cloudflare_zone.athenaframework_org.id
   name     = cloudflare_zone.athenaframework_org.zone
   priority = "10"
-  value    = "mx1.simplelogin.co."
+  content  = "mx1.simplelogin.co."
   type     = "MX"
   proxied  = false
 }
@@ -94,7 +94,7 @@ resource "cloudflare_record" "athenaframework_org_email_mx2" {
   zone_id  = cloudflare_zone.athenaframework_org.id
   name     = cloudflare_zone.athenaframework_org.zone
   priority = "20"
-  value    = "mx2.simplelogin.co."
+  content  = "mx2.simplelogin.co."
   type     = "MX"
   proxied  = false
 }
@@ -102,7 +102,7 @@ resource "cloudflare_record" "athenaframework_org_email_mx2" {
 resource "cloudflare_record" "athenaframework_org_email_spf_txt" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = cloudflare_zone.athenaframework_org.zone
-  value   = "v=spf1 include:simplelogin.co ~all"
+  content = "v=spf1 include:simplelogin.co ~all"
   type    = "TXT"
   proxied = false
 }
@@ -110,7 +110,7 @@ resource "cloudflare_record" "athenaframework_org_email_spf_txt" {
 resource "cloudflare_record" "athenaframework_org_email_dkim1" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "dkim._domainkey"
-  value   = "dkim._domainkey.simplelogin.co."
+  content = "dkim._domainkey.simplelogin.co."
   type    = "CNAME"
   proxied = false
 }
@@ -118,7 +118,7 @@ resource "cloudflare_record" "athenaframework_org_email_dkim1" {
 resource "cloudflare_record" "athenaframework_org_email_dkim2" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "dkim02._domainkey"
-  value   = "dkim02._domainkey.simplelogin.co."
+  content = "dkim02._domainkey.simplelogin.co."
   type    = "CNAME"
   proxied = false
 }
@@ -126,7 +126,7 @@ resource "cloudflare_record" "athenaframework_org_email_dkim2" {
 resource "cloudflare_record" "athenaframework_org_email_dkim3" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "dkim03._domainkey"
-  value   = "dkim03._domainkey.simplelogin.co."
+  content = "dkim03._domainkey.simplelogin.co."
   type    = "CNAME"
   proxied = false
 }
@@ -134,7 +134,7 @@ resource "cloudflare_record" "athenaframework_org_email_dkim3" {
 resource "cloudflare_record" "athenaframework_org_email_dmarc_txt" {
   zone_id = cloudflare_zone.athenaframework_org.id
   name    = "_dmarc"
-  value   = "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
+  content = "v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s"
   type    = "TXT"
   proxied = false
 }

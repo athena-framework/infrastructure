@@ -34,7 +34,7 @@ resource "cloudflare_record" "athena_framework_org_redirect" {
   zone_id = cloudflare_zone.athena_framework_org.id
   name    = "athena-framework.org"
   comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
-  value   = "192.0.2.1"
+  content = "192.0.2.1"
   type    = "A"
   proxied = true
 }
@@ -43,7 +43,7 @@ resource "cloudflare_record" "athena_framework_org_www_redirect" {
   zone_id = cloudflare_zone.athena_framework_org.id
   name    = "www"
   comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
-  value   = "192.0.2.1"
+  content = "192.0.2.1"
   type    = "A"
   proxied = true
 }
@@ -52,7 +52,7 @@ resource "cloudflare_record" "athena_framework_org_dev_cname" {
   zone_id = cloudflare_zone.athena_framework_org.id
   name    = "dev"
   comment = "https://developers.cloudflare.com/fundamentals/setup/manage-domains/redirect-domain/"
-  value   = "192.0.2.1"
+  content = "192.0.2.1"
   type    = "A"
   proxied = true
 }
