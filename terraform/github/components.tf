@@ -93,6 +93,16 @@ module "mercure_component" {
   topics      = concat(local.topics, ["mercure", "server-sent-events"])
 }
 
+module "mime_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "mime"
+  description = "Allows manipulating MIME messages"
+  url         = "https://athenaframework.org/MIME/"
+  topics      = concat(local.topics, ["mime", "mime-type"])
+}
+
 module "negotiation_component" {
   source = "./modules/component"
 
