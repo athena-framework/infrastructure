@@ -21,15 +21,10 @@ resource "aws_iam_policy" "athena_terraform" {
         {
             "Effect": "Allow",
             "Action": [
-                "dynamodb:PutItem",
-                "dynamodb:DescribeTable",
-                "dynamodb:DeleteItem",
-                "dynamodb:GetItem",
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws:s3:::athena-framework",
-                "arn:aws:dynamodb:*:*:table/terraform-state"
+                "arn:aws:s3:::athena-framework"
             ]
         },
         {
@@ -57,19 +52,5 @@ resource "aws_s3_bucket_versioning" "athena_framework" {
 
   versioning_configuration {
     status = "Enabled"
-  }
-}
-
-# DynamoDB
-
-resource "aws_dynamodb_table" "terraform_state" {
-  name           = "terraform-state"
-  hash_key       = "LockID"
-  read_capacity  = 20
-  write_capacity = 20
-
-  attribute {
-    name = "LockID"
-    type = "S"
   }
 }

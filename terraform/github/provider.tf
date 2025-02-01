@@ -11,10 +11,10 @@ terraform {
     key            = "terraform/github.tfstate"
     region         = "us-east-1"
     encrypt        = true
-    dynamodb_table = "terraform-state"
+    use_lockfile   = true
   }
 
-  required_version = ">= 1.5.0"
+  required_version = ">= 1.10.0"
 }
 
 provider "github" {
