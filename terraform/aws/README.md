@@ -1,6 +1,7 @@
 # Terraform
 
-Terraform configurations that power the infrastructure of Athena.
+Terraform configurations that power the IaC backend of Athena.
+For now, requires root user to bootstrap.
 
 ## Quick Start
 
