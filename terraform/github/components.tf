@@ -33,6 +33,16 @@ module "console_component" {
   topics      = local.topics
 }
 
+module "contracts_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "contracts"
+  description = "A set of abstractions extracted out of the Athena components"
+  url         = "https://athenaframework.org/Contracts/"
+  topics      = concat(local.topics, ["crystal", "abstractions", "standards", "interoperability", "contracts", "decoupling", "interfaces"])
+}
+
 module "dependency_injection_component" {
   source = "./modules/component"
 

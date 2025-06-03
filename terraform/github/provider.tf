@@ -7,11 +7,11 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "athena-framework"
-    key            = "terraform/github.tfstate"
-    region         = "us-east-1"
-    encrypt        = true
-    use_lockfile   = true
+    bucket       = "athena-framework"
+    key          = "terraform/github.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
   }
 
   required_version = ">= 1.10.0"
