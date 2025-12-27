@@ -117,6 +117,7 @@ resource "github_branch_protection" "athena" {
       "test_unit (macos-latest, latest)",
       "test_unit (ubuntu-latest, latest)",
       "test_unit (windows-latest, latest)",
+      "test_unit (ubuntu-24.04-arm, latest)",
     ]
   }
 
