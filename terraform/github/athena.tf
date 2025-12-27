@@ -40,6 +40,9 @@ locals {
     "kind:question" = {
       "color" = "D876E3"
     }
+    "kind:refactor" = {
+      "color" = "38779E"
+    }
     "kind:regression" = {
       "color" = "FF0000"
     }

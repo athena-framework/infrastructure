@@ -83,6 +83,16 @@ module "framework_component" {
   topics      = local.topics
 }
 
+module "http_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "http"
+  description = "Shared common HTTP abstractions/utilities"
+  url         = "https://athenaframework.org/HTTP/"
+  topics      = local.topics
+}
+
 module "image_size_component" {
   source = "./modules/component"
 
