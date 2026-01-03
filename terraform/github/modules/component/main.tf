@@ -29,9 +29,12 @@ resource "github_repository" "component" {
 
   archived = var.deprecated
 
-  template {
-    owner      = "athena-framework"
-    repository = "component-template"
+  dynamic "template" {
+    for_each = var.historic == true ? [] : [1]
+    content {
+      owner      = "athena-framework"
+      repository = "component-template"
+    }
   }
 }
 

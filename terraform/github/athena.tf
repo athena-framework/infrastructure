@@ -91,7 +91,7 @@ resource "github_repository" "athena" {
   allow_rebase_merge          = false
   allow_squash_merge          = true
   squash_merge_commit_title   = "PR_TITLE"
-  squash_merge_commit_message = "COMMIT_MESSAGES"
+  squash_merge_commit_message = "PR_BODY"
   delete_branch_on_merge      = true
   auto_init                   = false
   allow_update_branch         = true

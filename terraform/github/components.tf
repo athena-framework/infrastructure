@@ -21,6 +21,7 @@ module "config_component" {
   url         = "https://athenaframework.org/Config/"
   topics      = local.topics
   deprecated  = true
+  historic    = true
 }
 
 module "console_component" {
@@ -51,6 +52,7 @@ module "dependency_injection_component" {
   description = "Robust dependency injection service container framework"
   url         = "https://athenaframework.org/DependencyInjection/"
   topics      = concat(local.topics, ["dependency-injection"])
+  historic    = true
 }
 
 module "dotenv_component" {
@@ -71,6 +73,7 @@ module "event_dispatcher_component" {
   description = "A Mediator and Observer pattern event library"
   url         = "https://athenaframework.org/EventDispatcher/"
   topics      = local.topics
+  historic    = true
 }
 
 module "framework_component" {
@@ -81,6 +84,7 @@ module "framework_component" {
   description = "A web framework created from various Athena components"
   url         = "https://athenaframework.org/Framework/"
   topics      = local.topics
+  historic    = true
 }
 
 module "http_component" {
@@ -90,6 +94,16 @@ module "http_component" {
   name        = "http"
   description = "Shared common HTTP abstractions/utilities"
   url         = "https://athenaframework.org/HTTP/"
+  topics      = local.topics
+}
+
+module "http_kernel_component" {
+  source = "./modules/component"
+
+  ci_team     = github_team.ci
+  name        = "http-kernel"
+  description = "Provides a structured process for converting a Request into a Response"
+  url         = "https://athenaframework.org/HTTPKernel/"
   topics      = local.topics
 }
 
