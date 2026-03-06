@@ -81,7 +81,6 @@ resource "github_repository" "athena" {
   visibility                  = "public"
   homepage_url                = "https://athenaframework.org"
   topics                      = ["api", "crystal", "framework"]
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   has_issues                  = true

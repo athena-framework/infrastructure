@@ -14,7 +14,7 @@ Manages the [athena-framework](https://github.com/athena-framework) GitHub organ
 ## Quick Start
 
 1. Define `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` ENV vars for the S3 state backend
-1. Define `TF_VAR_github_token` ENV var with a GitHub token to authenticate with the org
+1. Define `GITHUB_TOKEN` ENV var to authenticate with the GH org
 1. Run `tofu init`
 1. Run `tofu plan -out=tfplan` to see what needs to be updated (if anything)
 1. Run `tofu apply tfplan`
