@@ -18,7 +18,7 @@ terraform {
 }
 
 provider "cloudflare" {
-  api_token = var.cloudflare_api_token
+  # api_token = $CLOUDFLARE_API_TOKEN
 }
 
 resource "cloudflare_account" "blacksmoke16" {

@@ -2,19 +2,14 @@
 resource "aws_iam_user" "admin" {
   name = "admin"
   path = "/"
-
-  tags = {
-    Terraformer = "Admin"
-  }
 }
 
-# User that'll be used in CI and such to handle AWS terraform interactions.
-resource "aws_iam_user" "athena_terraform" {
-  name          = "athena-terraform"
-  path          = "/terraform/"
-  force_destroy = true
+resource "aws_iam_user_policy_attachment" "admin_s3" {
+  user       = aws_iam_user.admin.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
 
-  tags = {
-    Terraformer = "Developer"
-  }
+resource "aws_iam_user_policy_attachment" "admin_iam" {
+  user       = aws_iam_user.admin.name
+  policy_arn = "arn:aws:iam::aws:policy/IAMFullAccess"
 }
