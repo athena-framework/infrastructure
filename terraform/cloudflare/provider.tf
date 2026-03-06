@@ -2,23 +2,23 @@ terraform {
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
-      version = "~> 4.12"
+      version = "~> 4.52"
     }
   }
 
   backend "s3" {
-    bucket         = "athena-framework"
-    key            = "terraform/cloudflare.tfstate"
-    region         = "us-east-1"
-    encrypt        = true
-    use_lockfile   = true
+    bucket       = "athena-framework"
+    key          = "terraform/cloudflare.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
   }
 
   required_version = ">= 1.10.0"
 }
 
 provider "cloudflare" {
-  api_token = var.api_token
+  # api_token = $CLOUDFLARE_API_TOKEN
 }
 
 resource "cloudflare_account" "blacksmoke16" {

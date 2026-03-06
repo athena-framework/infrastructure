@@ -40,6 +40,9 @@ locals {
     "kind:question" = {
       "color" = "D876E3"
     }
+    "kind:refactor" = {
+      "color" = "38779E"
+    }
     "kind:regression" = {
       "color" = "FF0000"
     }
@@ -78,7 +81,6 @@ resource "github_repository" "athena" {
   visibility                  = "public"
   homepage_url                = "https://athenaframework.org"
   topics                      = ["api", "crystal", "framework"]
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   has_issues                  = true
@@ -88,7 +90,7 @@ resource "github_repository" "athena" {
   allow_rebase_merge          = false
   allow_squash_merge          = true
   squash_merge_commit_title   = "PR_TITLE"
-  squash_merge_commit_message = "COMMIT_MESSAGES"
+  squash_merge_commit_message = "PR_BODY"
   delete_branch_on_merge      = true
   auto_init                   = false
   allow_update_branch         = true
@@ -117,6 +119,7 @@ resource "github_branch_protection" "athena" {
       "test_unit (macos-latest, latest)",
       "test_unit (ubuntu-latest, latest)",
       "test_unit (windows-latest, latest)",
+      "test_unit (ubuntu-24.04-arm, latest)",
     ]
   }
 

@@ -2,16 +2,16 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.28"
+      version = "~> 6"
     }
   }
 
   backend "s3" {
-    bucket         = "athena-framework"
-    key            = "terraform/aws.tfstate"
-    region         = "us-east-1"
-    encrypt        = true
-    use_lockfile   = true
+    bucket       = "athena-framework"
+    key          = "terraform/aws.tfstate"
+    region       = "us-east-1"
+    encrypt      = true
+    use_lockfile = true
   }
 
   required_version = ">= 1.10.0"
@@ -19,4 +19,6 @@ terraform {
 
 provider "aws" {
   region = "us-east-1"
+  # access_key = $AWS_ACCESS_KEY_ID
+  # secret_key =  = $AWS_SECRET_ACCESS_KEY
 }

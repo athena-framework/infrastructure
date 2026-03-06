@@ -4,7 +4,6 @@ resource "github_repository" "demo" {
   visibility                  = "public"
   homepage_url                = "https://athenaframework.org/"
   topics                      = local.topics
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   has_issues                  = true
@@ -20,7 +19,7 @@ resource "github_repository" "demo" {
   allow_update_branch         = true
 
   template {
-    owner      = "athena-framework"
+    owner      = local.organization
     repository = "skeleton"
   }
 

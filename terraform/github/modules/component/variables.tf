@@ -1,3 +1,9 @@
+variable "organization" {
+  description = "The GitHub organization that owns the component template repository"
+  type        = string
+  nullable    = false
+}
+
 variable "name" {
   description = "The name of the component's repository"
   type        = string
@@ -50,7 +56,15 @@ variable "ci_team" {
 }
 
 variable "deprecated" {
-  type     = bool
-  nullable = false
-  default  = false
+  description = "Deprecated components are archived on GH"
+  type        = bool
+  nullable    = false
+  default     = false
+}
+
+variable "historic" {
+  description = "Historic components were not created using the GH component template repo"
+  type        = bool
+  nullable    = false
+  default     = false
 }

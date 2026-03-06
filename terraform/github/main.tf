@@ -2,7 +2,6 @@ resource "github_repository" "infrastructure" {
   name                        = "infrastructure"
   description                 = "Internal Athena infra configs"
   visibility                  = "public"
-  has_downloads               = false
   has_projects                = false
   has_wiki                    = false
   has_issues                  = false
@@ -41,4 +40,3 @@ resource "github_team_members" "ci" {
     role     = "member"
   }
 }
-
