@@ -13,6 +13,6 @@ OpenTofu configurations that manage the Athena Framework's infrastructure.
 - [OpenTofu](https://opentofu.org/) >= 1.10.0
 - AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`) for the S3 state backend
 - Cloudflare API token (`CLOUDFLARE_API_TOKEN`) for DNS/Pages management
-- GitHub token (`TF_VAR_github_token`) for org management
+- GitHub token (`GITHUB_TOKEN`) for org management
 
 Each directory is an independent root module — see its README for usage details.
