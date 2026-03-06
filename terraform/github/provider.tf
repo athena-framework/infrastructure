@@ -19,4 +19,5 @@ terraform {
 
 provider "github" {
   owner = "athena-framework"
+  # token = $GITHUB_TOKEN
 }
