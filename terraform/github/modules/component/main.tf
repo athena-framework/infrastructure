@@ -32,7 +32,7 @@ resource "github_repository" "component" {
   dynamic "template" {
     for_each = var.historic == true ? [] : [1]
     content {
-      owner      = "athena-framework"
+      owner      = var.organization
       repository = "component-template"
     }
   }

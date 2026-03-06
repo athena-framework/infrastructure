@@ -20,7 +20,7 @@ resource "github_repository" "demo" {
   allow_update_branch         = true
 
   template {
-    owner      = "athena-framework"
+    owner      = local.organization
     repository = "skeleton"
   }
 

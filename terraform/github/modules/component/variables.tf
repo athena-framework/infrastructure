@@ -1,3 +1,9 @@
+variable "organization" {
+  description = "The GitHub organization that owns the component template repository"
+  type        = string
+  nullable    = false
+}
+
 variable "name" {
   description = "The name of the component's repository"
   type        = string
