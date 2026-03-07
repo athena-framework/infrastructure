@@ -1,5 +1,5 @@
 module "clock_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -10,7 +10,7 @@ module "clock_component" {
 }
 
 module "config_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -23,7 +23,7 @@ module "config_component" {
 }
 
 module "console_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -34,7 +34,7 @@ module "console_component" {
 }
 
 module "contracts_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -45,7 +45,7 @@ module "contracts_component" {
 }
 
 module "dependency_injection_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -57,7 +57,7 @@ module "dependency_injection_component" {
 }
 
 module "dotenv_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -68,7 +68,7 @@ module "dotenv_component" {
 }
 
 module "event_dispatcher_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -80,7 +80,7 @@ module "event_dispatcher_component" {
 }
 
 module "framework_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -92,7 +92,7 @@ module "framework_component" {
 }
 
 module "http_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -103,7 +103,7 @@ module "http_component" {
 }
 
 module "http_kernel_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -114,7 +114,7 @@ module "http_kernel_component" {
 }
 
 module "image_size_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -125,7 +125,7 @@ module "image_size_component" {
 }
 
 module "mercure_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -136,7 +136,7 @@ module "mercure_component" {
 }
 
 module "mime_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -147,7 +147,7 @@ module "mime_component" {
 }
 
 module "negotiation_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -158,7 +158,7 @@ module "negotiation_component" {
 }
 
 module "routing_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -169,7 +169,7 @@ module "routing_component" {
 }
 
 module "serializer_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -180,7 +180,7 @@ module "serializer_component" {
 }
 
 module "spec_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization
@@ -191,7 +191,7 @@ module "spec_component" {
 }
 
 module "validator_component" {
-  source = "./modules/component"
+  source = "./modules/repository"
 
   ci_team      = github_team.ci
   organization = local.organization

@@ -6,12 +6,12 @@ terraform {
   }
 }
 
-resource "github_repository" "component" {
+resource "github_repository" "this" {
   name                        = var.name
   description                 = var.description
   visibility                  = var.visibility
   homepage_url                = var.url
-  topics                      = concat(var.topics, ["component"])
+  topics                      = concat(var.topics, [var.type])
   has_projects                = false
   has_wiki                    = false
   has_issues                  = false
@@ -32,18 +32,18 @@ resource "github_repository" "component" {
     for_each = var.historic == true ? [] : [1]
     content {
       owner      = var.organization
-      repository = "component-template"
+      repository = "${var.type}-template"
     }
   }
 }
 
-resource "github_actions_repository_permissions" "component" {
-  repository = github_repository.component.id
+resource "github_actions_repository_permissions" "this" {
+  repository = github_repository.this.id
   enabled    = false
 }
 
 resource "github_branch_protection" "master" {
-  repository_id = github_repository.component.node_id
+  repository_id = github_repository.this.node_id
   pattern       = "master"
 
   enforce_admins          = true
@@ -61,26 +61,26 @@ resource "github_branch_protection" "master" {
 }
 
 resource "github_branch_default" "default" {
-  repository = github_repository.component.id
+  repository = github_repository.this.id
   branch     = var.branch
 }
 
 resource "github_team_repository" "ci" {
-  repository = github_repository.component.id
+  repository = github_repository.this.id
   team_id    = var.ci_team.id
   permission = "push"
 }
 
-# Doc branch used to build the API docs for the component
+# Doc branch used to build the API docs
 resource "github_branch" "docs" {
-  repository    = github_repository.component.id
+  repository    = github_repository.this.id
   branch        = "docs"
   source_branch = var.branch
 }
 
-# Component issue label
-resource "github_issue_label" "component" {
+# Issue label in the monorepo
+resource "github_issue_label" "this" {
   repository = "athena"
-  name       = "component:${var.name}"
+  name       = "${var.type}:${var.name}"
   color      = "BBD8F2"
 }

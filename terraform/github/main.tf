@@ -1,3 +1,18 @@
+resource "github_actions_organization_permissions" "athena_framework" {
+  sha_pinning_required = false
+  enabled_repositories = "selected"
+  allowed_actions      = "all"
+
+  enabled_repositories_config {
+    repository_ids = [
+      github_repository.athena.repo_id,
+      github_repository.demo.repo_id,
+      github_repository.skeleton.repo_id,
+      github_repository.infrastructure.repo_id,
+    ]
+  }
+}
+
 resource "github_repository" "infrastructure" {
   name                        = "infrastructure"
   description                 = "Internal Athena infra configs"
@@ -10,8 +25,8 @@ resource "github_repository" "infrastructure" {
   allow_merge_commit          = false
   allow_rebase_merge          = false
   allow_squash_merge          = true
-  squash_merge_commit_title   = "COMMIT_OR_PR_TITLE"
-  squash_merge_commit_message = "COMMIT_MESSAGES"
+  squash_merge_commit_title   = "PR_TITLE"
+  squash_merge_commit_message = "PR_BODY"
   delete_branch_on_merge      = true
   auto_init                   = true
   allow_update_branch         = true
