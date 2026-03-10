@@ -81,6 +81,6 @@ resource "github_branch" "docs" {
 # Issue label in the monorepo
 resource "github_issue_label" "this" {
   repository = "athena"
-  name       = "${var.type}:${var.name}"
-  color      = "BBD8F2"
+  name       = "${var.type}:${trimsuffix(var.name, "-bundle")}"
+  color      = var.type == "bundle" ? "1A3C50" : "BBD8F2"
 }
