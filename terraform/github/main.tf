@@ -1,5 +1,5 @@
 resource "github_actions_organization_permissions" "athena_framework" {
-  sha_pinning_required = false
+  sha_pinning_required = true
   enabled_repositories = "selected"
   allowed_actions      = "all"
 
