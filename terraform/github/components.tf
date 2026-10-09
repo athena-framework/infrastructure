@@ -157,6 +157,17 @@ module "negotiation_component" {
   topics       = local.topics
 }
 
+module "orm_component" {
+  source = "./modules/repository"
+
+  ci_team      = github_team.ci
+  organization = local.organization
+  name         = "orm"
+  description  = "Annotation driven object-relational mapper"
+  url          = "${local.base_url}/ORM/"
+  topics       = local.topics
+}
+
 module "routing_component" {
   source = "./modules/repository"
 

@@ -48,7 +48,7 @@ resource "github_team" "ci" {
 }
 
 resource "github_team_members" "ci" {
-  team_id = github_team.ci.id
+  team_slug = github_team.ci.slug
 
   members {
     username = github_membership.ci.username
