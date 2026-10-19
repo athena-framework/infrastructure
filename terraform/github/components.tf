@@ -168,6 +168,17 @@ module "orm_component" {
   topics       = local.topics
 }
 
+module "password_hasher_component" {
+  source = "./modules/repository"
+
+  ci_team      = github_team.ci
+  organization = local.organization
+  name         = "password-hasher"
+  description  = "Provides secure password hashing utilities"
+  url          = "${local.base_url}/PasswordHasher/"
+  topics       = local.topics
+}
+
 module "routing_component" {
   source = "./modules/repository"
 
