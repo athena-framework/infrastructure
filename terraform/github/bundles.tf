@@ -8,4 +8,5 @@ module "mercure_bundle" {
   url          = "${local.base_url}/MercureBundle/"
   topics       = local.topics
   type         = "bundle"
+  deprecated   = true
 }

@@ -190,6 +190,17 @@ module "routing_component" {
   topics       = local.topics
 }
 
+module "security_component" {
+  source = "./modules/repository"
+
+  ci_team      = github_team.ci
+  organization = local.organization
+  name         = "security"
+  description  = "Provides authentication and authorization utilities"
+  url          = "${local.base_url}/Security/"
+  topics       = local.topics
+}
+
 module "serializer_component" {
   source = "./modules/repository"
 
